@@ -1,4 +1,4 @@
-<!-- Badges: replace a1rm4x/ultralytics-intel-arc-xpu in GitHub URLs if you fork or mirror elsewhere. -->
+<!-- Canonical repository: https://github.com/sidnei-almeida/ultralytics-intel-arc-xpu -->
 <p align="center">
   <img src="images/logo.png" alt="ultralytics-intel-arc-xpu — Intel Arc XPU for Ultralytics YOLO" width="520" />
 </p>
@@ -10,23 +10,10 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0071C5?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
-  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.9+" /></a>
-  <a href="https://kernel.org/"><img src="https://img.shields.io/badge/Platform-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Platform: Linux" /></a>
-  <img src="https://img.shields.io/badge/Accelerator-Intel%20Arc%20XPU-0071C5?style=for-the-badge&logo=intel&logoColor=white" alt="Intel Arc XPU" />
-</p>
-
-<p align="center">
-  <a href="https://github.com/ultralytics/ultralytics"><img src="https://img.shields.io/badge/Ultralytics-YOLO-111F68?style=for-the-badge&logo=ultralytics&logoColor=white" alt="Ultralytics YOLO" /></a>
-  <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-XPU-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch XPU" /></a>
-  <a href="https://github.com/Textualize/rich"><img src="https://img.shields.io/badge/CLI-Rich-FF4B4B?style=for-the-badge&logo=python&logoColor=white" alt="Rich terminal UI" /></a>
-  <a href="https://github.com/a1rm4x/ultralytics-intel-arc-xpu/releases"><img src="https://img.shields.io/badge/Release-v0.1.0-1f2328?style=for-the-badge&logo=github&logoColor=white" alt="Release v0.1.0" /></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/a1rm4x/ultralytics-intel-arc-xpu"><img src="https://img.shields.io/github/stars/a1rm4x/ultralytics-intel-arc-xpu?style=for-the-badge&logo=github&label=Stars" alt="GitHub stars" /></a>
-  <a href="https://github.com/a1rm4x/ultralytics-intel-arc-xpu/fork"><img src="https://img.shields.io/github/forks/a1rm4x/ultralytics-intel-arc-xpu?style=for-the-badge&logo=github&label=Forks" alt="GitHub forks" /></a>
-  <a href="https://github.com/a1rm4x/ultralytics-intel-arc-xpu/commits/"><img src="https://img.shields.io/github/last-commit/a1rm4x/ultralytics-intel-arc-xpu?style=for-the-badge&logo=github&label=Last%20commit" alt="Last commit" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0071C5?style=flat-square" alt="License: MIT" /></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.9+" /></a>
+  <img src="https://img.shields.io/badge/Linux-only-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux only" />
+  <img src="https://img.shields.io/badge/Intel%20Arc-XPU-0071C5?style=flat-square&logo=intel&logoColor=white" alt="Intel Arc XPU" />
 </p>
 
 <p align="center">
@@ -39,6 +26,7 @@
   <a href="#training--examples">Examples</a> ·
   <a href="#what-the-patch-changes">Patch details</a> ·
   <a href="#troubleshooting">Troubleshooting</a> ·
+  <a href="#author">Author</a> ·
   <a href="#license">License</a>
 </p>
 
@@ -221,6 +209,16 @@ Each file is backed up as `<filename>.bak` **before** the first modification. Re
 | “No virtual environment active” | Run `source venv/bin/activate` (or your env manager’s equivalent) before `./ultralytics-xpu`. |
 | Patch warns “snippet not found” | Your Ultralytics version may differ from the lines the patch anchors on. Note `pip show ultralytics` and open an issue with the version string. |
 | Training errors after patch | Restart the Python process / Jupyter kernel so the patched modules are reloaded. |
+
+---
+
+## Author
+
+| | |
+| --- | --- |
+| **Maintainer** | [Sidnei Almeida](https://github.com/sidnei-almeida) ([@sidnei-almeida](https://github.com/sidnei-almeida)) |
+| **Repository** | [github.com/sidnei-almeida/ultralytics-intel-arc-xpu](https://github.com/sidnei-almeida/ultralytics-intel-arc-xpu) |
+| **LinkedIn** | [linkedin.com/in/saaelmeida93](https://www.linkedin.com/in/saaelmeida93/) |
 
 ---
 

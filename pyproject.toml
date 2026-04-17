@@ -9,7 +9,7 @@ description = "Patch Ultralytics YOLO to enable Intel Arc (XPU) training and inf
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
-authors = [{ name = "a1rm4x" }]
+authors = [{ name = "Sidnei Almeida" }]
 keywords = ["ultralytics", "yolo", "intel", "arc", "xpu", "pytorch"]
 classifiers = [
     "Environment :: Console",
@@ -21,6 +21,11 @@ classifiers = [
 dependencies = [
     "rich>=13.7.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/sidnei-almeida/ultralytics-intel-arc-xpu"
+Repository = "https://github.com/sidnei-almeida/ultralytics-intel-arc-xpu"
+LinkedIn = "https://www.linkedin.com/in/saaelmeida93/"
 
 [project.scripts]
 ultralytics-xpu = "ultralytics_xpu.cli:main"
