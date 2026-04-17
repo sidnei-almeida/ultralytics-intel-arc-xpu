@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ultralytics-intel-arc-xpu"
+version = "0.1.0"
+description = "Patch Ultralytics YOLO to enable Intel Arc (XPU) training and inference."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "a1rm4x" }]
+keywords = ["ultralytics", "yolo", "intel", "arc", "xpu", "pytorch"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "rich>=13.7.0",
+]
+
+[project.scripts]
+ultralytics-xpu = "ultralytics_xpu.cli:main"
+
+[tool.setuptools]
+packages = ["ultralytics_xpu"]

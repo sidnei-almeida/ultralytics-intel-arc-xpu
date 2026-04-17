@@ -1,0 +1,5 @@
+# Runtime dependencies for the CLI.
+# Install PyTorch (with XPU support) and Ultralytics separately, following
+# Intel's official instructions for your distro/driver combination.
+
+rich>=13.7.0

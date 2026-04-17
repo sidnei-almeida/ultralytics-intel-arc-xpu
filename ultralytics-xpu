@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# ultralytics-xpu — launcher for the Intel Arc (XPU) patch CLI.
+#
+# Resolves the script's real directory (even through symlinks), validates the
+# active Python environment and delegates to the ``ultralytics_xpu`` package.
+
+set -euo pipefail
+
+# ---------------------------------------------------------------------------
+# Locate the script directory (supports symlinks)
+# ---------------------------------------------------------------------------
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+ROOT="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+
+# ---------------------------------------------------------------------------
+# Colors (degrade gracefully on non-tty output)
+# ---------------------------------------------------------------------------
+if [[ -t 1 ]]; then
+  C_CYAN=$'\033[38;2;0;199;253m'
+  C_BLUE=$'\033[38;2;0;104;181m'
+  C_DIM=$'\033[2m'
+  C_BOLD=$'\033[1m'
+  C_RED=$'\033[1;31m'
+  C_RESET=$'\033[0m'
+else
+  C_CYAN=""; C_BLUE=""; C_DIM=""; C_BOLD=""; C_RED=""; C_RESET=""
+fi
+
+msg()  { printf "%s\n" "${C_DIM}${*}${C_RESET}"; }
+warn() { printf "%s\n" "${C_BOLD}⚠ ${*}${C_RESET}" >&2; }
+err()  { printf "%s\n" "${C_RED}✖ ${*}${C_RESET}" >&2; }
+ok()   { printf "%s\n" "${C_CYAN}✔ ${*}${C_RESET}"; }
+
+# ---------------------------------------------------------------------------
+# Virtualenv guard
+# ---------------------------------------------------------------------------
+if [[ -z "${VIRTUAL_ENV:-}" ]]; then
+  err "No virtual environment is active."
+  msg "Activate one first, e.g.:"
+  printf "    ${C_BOLD}source venv/bin/activate${C_RESET}\n"
+  exit 1
+fi
+
+PY="${VIRTUAL_ENV}/bin/python"
+if [[ ! -x "$PY" ]]; then
+  PY="$(command -v python3 || command -v python || true)"
+fi
+if [[ -z "$PY" ]]; then
+  err "Could not find a Python interpreter."
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
+# Dependency check (rich)
+# ---------------------------------------------------------------------------
+if ! "$PY" -c "import rich" >/dev/null 2>&1; then
+  warn "The 'rich' package is required for the CLI UI."
+  read -r -p "   Install it now via pip? [Y/n] " reply
+  reply="${reply:-Y}"
+  if [[ "$reply" =~ ^[Yy]$ ]]; then
+    "$PY" -m pip install --quiet "rich>=13.0.0"
+    ok "rich installed."
+  else
+    err "Aborting: the CLI cannot run without 'rich'."
+    exit 1
+  fi
+fi
+
+# ---------------------------------------------------------------------------
+# Delegate to the Python CLI
+# ---------------------------------------------------------------------------
+cd "$ROOT"
+exec "$PY" -m ultralytics_xpu "$@"
